@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-color: beige;">
+    <div class="container">
+        <h1 class="mb-5 mt-5" style="color:rgb(0, 0, 0);">Gorilla Blogspot</h1>
+    </div>
+    <div class="container">
+        <a href="/articles/new" class="btn btn-success">ADD ARTICLE</a>
+         <% articles.forEach(article =>{%>
+            <div class="card mt-4" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= article.date.toLocaleDateString() %>
+                    </div>
+                    <div class="card-text mb-2">
+                      <%= article.description %>
+                    </div>
+                    <a href="articles/<%= article.id %>" class="btn btn-primary">Read More</a>
+                    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

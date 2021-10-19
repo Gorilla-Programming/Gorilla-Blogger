@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-5 mt-5" style="color:brown;">Gorilla Blogspot</h1>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+    <div class="container mb-5 mt-3">
+        <h2 class="mb-2"><%= currentArticle.title %></h2>
+        <div class="text-muted mb-3">
+          <%= currentArticle.date.toLocaleDateString() %>
+        </div>
+        <!--<a href="/articles/edit/<%= currentArticle.id %>" class="btn btn-info">Edit</a>-->
+        <div class="mt-4 mb-4">
+            <%- currentArticle.markdown %>
+          </div>
+    </div>
+
+</body>
+</html>
